@@ -4,11 +4,7 @@ import s from './Dialogs.module.css';
 const Dialogs = (props) => {
     return (
         <div>
-            Dialogs ddddded
-            egergwee
-            ergewgre
-            gewrgewrg
-            ergewrgweg
+            <p>It is a Massages page</p>
         </div>
     )
 
