@@ -4,7 +4,8 @@ import s from './Settings.module.css';
 const Settings = (props) => {
     return (
         <div>
-            <p>It is  a Settings page</p>
+            <p>It is a Settings page</p>
+            <a strings>It is props a tegs</a>
         </div>
     )
 
