@@ -5,7 +5,6 @@ const Header = () => {
     return (
         <header className={s.header}>
             <img src='https://www.freelogodesign.org/Content/img/logo-samples/celtica.png'></img>
-            
         </header>
     );
 }
