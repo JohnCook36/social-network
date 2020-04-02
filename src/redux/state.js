@@ -13,11 +13,11 @@ let state = {
     },
     dialogsPage: {
         dialogs: [
-            {id: 1, name: 'Valeriy'},
-            {id: 2, name: 'Anastasiya'},
-            {id: 3, name: 'Victor'},
-            {id: 4, name: 'Lena'},
-            {id: 5, name: 'Ivan'}
+            {id: 1, name: 'Valeriy', avatar: 'https://i.pravatar.cc/150'},
+            {id: 2, name: 'Anastasiya', avatar: 'https://i.pravatar.cc/150'},
+            {id: 3, name: 'Victor', avatar: 'https://i.pravatar.cc/150'},
+            {id: 4, name: 'Lena', avatar: 'https://i.pravatar.cc/150'},
+            {id: 5, name: 'Ivan', avatar: 'https://i.pravatar.cc/150'}
         ],
         messages: [
             {id: 1, message: 'Hi'},
