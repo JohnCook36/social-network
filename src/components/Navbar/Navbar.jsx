@@ -20,8 +20,16 @@ const Navbar = () => {
             <div className={s.item}>
                 <NavLink to="/settings" activeClassName={s.activeLink}>Settings</NavLink>
             </div>
-            <div className={s.item}>
+            <div className={`${s.item} ${s.elements}`}>
                 <NavLink to="/friends" activeClassName={s.activeLink}>Friends</NavLink>
+            </div>
+            <div className={s.friendsItem}>
+                <a href={'/friends'} className={s.friendsComponent}>
+                </a>
+                <a href={'/friends'}  className={s.friendsComponent}>
+                </a>
+                <a href={'/friends'}  className={s.friendsComponent}>
+                </a>
             </div>
         </nav>
     );

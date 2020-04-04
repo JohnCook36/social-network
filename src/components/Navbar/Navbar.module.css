@@ -9,6 +9,28 @@
     text-decoration: none;
 }
 
+.elements {
+    margin-top: 50px ;
+}
+
 .item a.activeLink {
-    color: gold;
+    color: orangered;
+}
+
+.friendsItem {
+}
+
+.friendsComponent {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+    margin-top: 10px;
+    border-radius: 50%;
+    background: silver;
+}
+
+.friendsComponent:hover {
+    display: inline-block;
+    border: 1px solid red;
 }
