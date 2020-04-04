@@ -3,14 +3,13 @@
     background-color: deepskyblue;
     padding: 20px;
 }
-
 .item a {
     color: white;
     text-decoration: none;
 }
 
 .elements {
-    margin-top: 50px ;
+    margin-top: 50px;
 }
 
 .item a.activeLink {
@@ -31,6 +30,5 @@
 }
 
 .friendsComponent:hover {
-    display: inline-block;
     border: 1px solid red;
 }

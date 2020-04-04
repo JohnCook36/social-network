@@ -4,7 +4,7 @@ import FriendsItem from "./FriendsItem/FriendsItem";
 
 const Friends = (props) => {
 
-    let friendsElements = props.state.dialogs.map (f => <FriendsItem avatar={f.avatar}  name={f.name} id={f.id}/>);
+    let friendsElements = props.state.friends.map (f => <FriendsItem avatar={f.avatar}  name={f.name} id={f.id}/>);
 
 
 
