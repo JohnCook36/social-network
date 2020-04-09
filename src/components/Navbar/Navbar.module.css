@@ -17,6 +17,8 @@
 }
 
 .friendsItem {
+    display: flex;
+    justify-content: space-between;
 }
 
 .friendsComponent {
@@ -30,5 +32,6 @@
 }
 
 .friendsComponent:hover {
+    /*display: inline-block;*/
     border: 1px solid red;
 }
