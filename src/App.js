@@ -9,6 +9,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
+import {addPost} from "./redux/state";
 
 const App = (props) => {
     return (
@@ -20,7 +21,8 @@ const App = (props) => {
                 <Route path='/dialogs'
                        render={() => <Dialogs state={props.state.dialogsPage} friends={props.state.sidebar}/>}/>
                 <Route path='/profile'
-                       render={() => <Profile state={props.state.profilePage}/>}/>
+                       render={() => <Profile state={props.state.profilePage}
+                                              addPost={props.addPost}/>}/>
                 <Route path='/news' component={News}/>
                 <Route path='/music' component={Music}/>
                 <Route path='/settings' component={Settings}/>
