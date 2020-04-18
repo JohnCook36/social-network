@@ -1,4 +1,5 @@
 import React from "react";
+import {rerenderEntireTree} from "../render";
 
 let state = {
 
@@ -17,36 +18,37 @@ let state = {
             {id: 2, name: 'Anastasiya', avatar: 'https://i.pravatar.cc/150'},
             {id: 3, name: 'Victor', avatar: 'https://i.pravatar.cc/150'},
             {id: 4, name: 'Lena', avatar: 'https://i.pravatar.cc/150'},
-            {id: 5, name: 'Ivan', avatar: 'https://i.pravatar.cc/150'}
+            {id: 5, name: 'Ivan', avatar: 'https://i.pravatar.cc/150'},
         ],
         messages: [
             {id: 1, message: 'Hi'},
             {id: 2, message: 'How are you'},
             {id: 3, message: 'Yo'},
             {id: 4, message: 'Good job'},
-            {id: 5, message: 'Whay are you doing'}
+            {id: 5, message: 'Whay are you doing'},
         ]
     },
-    sidebar:{
+    sidebar: {
         friends: [
             {id: 1, name: 'Valeriy', avatar: 'https://i.pravatar.cc/150'},
             {id: 2, name: 'Anastasiya', avatar: 'https://i.pravatar.cc/150'},
             {id: 3, name: 'Victor', avatar: 'https://i.pravatar.cc/150'},
             {id: 4, name: 'Lena', avatar: 'https://i.pravatar.cc/150'},
-            {id: 5, name: 'Ivan', avatar: 'https://i.pravatar.cc/150'}
+            {id: 5, name: 'Ivan', avatar: 'https://i.pravatar.cc/150'},
         ],
     }
 };
 
 export let addPost = (postMessage) => {
-    debugger;
     let newPost = {
         id: 6,
         message: postMessage,
-        likesCount: 0
+        likesCount: 0,
     };
 
     state.profilePage.posts.push(newPost);
-};
+    rerenderEntireTree(state);
+   };
+
 
 export default state;
