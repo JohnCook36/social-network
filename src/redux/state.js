@@ -3,6 +3,7 @@ import {rerenderEntireTree} from "../render";
 
 let state = {
 
+
     profilePage: {
         posts: [
             {id: 1, message: 'Hi, how are you', likesCount: 13},
@@ -11,6 +12,7 @@ let state = {
             {id: 4, message: 'It is cool', likesCount: 1},
             {id: 5, message: 'Good day', likesCount: 7},
         ],
+        newPostText: "Напиши что нибудь"
     },
     dialogsPage: {
         dialogs: [
@@ -25,7 +27,7 @@ let state = {
             {id: 2, message: 'How are you'},
             {id: 3, message: 'Yo'},
             {id: 4, message: 'Good job'},
-            {id: 5, message: 'Whay are you doing'},
+            {id: 5, message: 'What are you doing'},
         ]
     },
     sidebar: {
@@ -39,16 +41,25 @@ let state = {
     }
 };
 
-export let addPost = (postMessage) => {
+window.state = state;
+
+export let addPost = () => {
     let newPost = {
         id: 6,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likesCount: 0,
     };
 
     state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
     rerenderEntireTree(state);
    };
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+};
+
 
 
 export default state;
