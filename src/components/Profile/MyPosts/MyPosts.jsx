@@ -4,7 +4,6 @@ import Posts from './Post/Posts';
 import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state";
 
 const MyPosts = (props) => {
-    debugger;
     let postsElements =
         props.posts.map(p => <Posts message={p.message} likesCount={p.likesCount} key={p.id}/>);
 

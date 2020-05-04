@@ -32,7 +32,7 @@ let store = {
                 {id: 4, message: 'Good job'},
                 {id: 5, message: 'What are you doing'},
             ],
-            newMessageText: "Напиши что нибудь"
+            newMessageText: "Видно?"
         },
         sidebar: {
             friends: [
@@ -88,29 +88,10 @@ let store = {
     }
 };
 
-export const addPostActionCreator = () => {
-    return {
-        type: ADD_POST
-    }
-};
-
-export const updateNewPostTextActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_POST_TEXT, newText: text
-    }
-};
-
-export const addMessageActionCreator = () => {
-    return {
-        type: ADD_MESSAGE
-    }
-};
-
-export const updateNewMessageTextActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_MESSAGE_TEXT, newMessage: text
-    }
-};
+export const addPostActionCreator = () => ({ type: ADD_POST});
+export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
+export const addMessageActionCreator = () => ({type: ADD_MESSAGE});
+export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newMessage: text});
 
 export default store;
 window.state = store;
