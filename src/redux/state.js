@@ -32,8 +32,9 @@ let store = {
                 {id: 4, message: 'Good job'},
                 {id: 5, message: 'What are you doing'},
             ],
-            newMessageText: "Видно?"
+
         },
+        newMessageText: "Видно?",
         sidebar: {
             friends: [
                 {id: 1, name: 'Valeriy', avatar: 'https://i.pravatar.cc/150'},
@@ -74,15 +75,14 @@ let store = {
             if (action.type === ADD_MESSAGE) {
             let newMessage = {
                 id: 6,
-                message: this._state.dialogsPage.newMessageText,
+                message: this._state.newMessageText,
             };
-
         this._state.dialogsPage.messages.push(newMessage);
-        this._state.dialogsPage.newMessageText = '';
+        this._state.newMessageText = '';
         this._callSubcriber(this._state);
         } else
-            if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.dialogsPage.newMessageText = action.newMessage;
+            if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+            this._state.newMessageText = action.newMessage;
             this._callSubcriber(this._state);
         }
     }
