@@ -1,11 +1,10 @@
 import React from "react";
-import s from './Settings.module.css';
 
-const Settings = (props) => {
+const Settings = () => {
     return (
         <div>
             <p>It is a Settings page</p>
-            <a strings>It is props a tegs</a>
+            <p>It is props a tags</p>
         </div>
     )
 
