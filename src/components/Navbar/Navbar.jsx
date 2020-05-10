@@ -2,10 +2,16 @@ import React from 'react';
 import s from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
 
+const NavbarTopFriend = ({ friend: { avatar, name } }) => {
+    return (
+        <NavLink to={'/friends'}>
+            <img src={avatar} alt={name} className={s.friendsComponent}/>
+        </NavLink>);
+}
 
-const Navbar = (props) => {
-
-    let friendsComponent = props.state.friends.map(f => <friendsComponent friends={f.friends}/>);
+const Navbar = ({ state: { friends }}) => {
+    let friendsToDisplay = friends.slice(0, 3);
+    let navbarTopFriends = friendsToDisplay.map(friend => <NavbarTopFriend friend={friend} key={friend.id}/>);
 
     return (
         <nav className={s.nav}>
@@ -28,15 +34,7 @@ const Navbar = (props) => {
                 <NavLink to="/friends" activeClassName={s.activeLink}>Friends</NavLink>
             </div>
             <div className={s.friendsList}>
-                <NavLink to={'/friends'} className={s.friendsComponent}>
-                    { friendsComponent }
-                </NavLink>
-                <NavLink to={'/friends'}  className={s.friendsComponent}>
-                    { friendsComponent }
-                </NavLink>
-                <NavLink to={'/friends'}  className={s.friendsComponent}>
-                    { friendsComponent }
-                </NavLink>
+                {navbarTopFriends}
             </div>
         </nav>
     );
