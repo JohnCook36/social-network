@@ -31,11 +31,3 @@ const App = (props) => {
 
 export default App;
 
-
-// let rerenderEntireTree = (state) => {
-//     ReactDOM.render(
-//         <BrowserRouter>
-//             <StoreContext.Provider value={store}>
-//                 <App state={state}/>
-//             </StoreContext.Provider>
-//         </BrowserRouter>, document.getElementById('root'));
