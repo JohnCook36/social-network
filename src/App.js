@@ -19,8 +19,7 @@ const App = (props) => {
                        render={() => <Profile/>}/>
                 <Route path='/dialogs'
                        render={() => <DialogsContainer/>}/>
-                <Route parth='/users'
-                       render={ () => <UsersContainer/>}/>
+                <Route parth='/users' render={ () => <UsersContainer/>}/>
                 <Route path='/friends'
                        render={() => <Friends state={props.state.sidebar}/>}/>
                 <Route path='/' exact={true} render={() => <Redirect to='/profile'/>}/>
