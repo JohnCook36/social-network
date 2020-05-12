@@ -3,14 +3,7 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
 
 let initialState = {
-    users: [
-        {id: 1, photoUrl: 'https://i.pravatar.cc/150', followed: false, fullName: 'Valeriy',
-            status: 'I am a boss', location: {city: 'Russia', country: 'Voronezh'} },
-        {id: 2, photoUrl: 'https://i.pravatar.cc/150', followed: true, fullName: 'Ivan',
-            status: 'I am a boss too', location: {city: 'Russia', country: 'Moscow'} },
-        {id: 3, photoUrl: 'https://i.pravatar.cc/150', followed: false, fullName: 'Petr',
-            status: 'I am a boss too', location: {city: 'Russia', country: 'Voronezh'} }
-    ]
+    users: [ ]
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -48,6 +41,6 @@ const usersReducer = (state = initialState, action) => {
 
 export const followAC = (userId) => ({ type: FOLLOW, userId});
 export const unFollowAC = (userId) => ({type: UNFOLLOW, userId});
-export const setUsersAC = (userId) => ({type: SET_USERS, userId});
+export const setUsersAC = (users) => ({type: SET_USERS, users});
 
 export default usersReducer;
