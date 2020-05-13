@@ -11,16 +11,27 @@ import * as axios from "axios";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 
+export const API_URL = 'https://social-network.samuraijs.com/api/1.0';
+export const USERS_URL = `${API_URL}/users`
+
 
 class UserContainer extends React.Component {
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-            .then(response => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(response.data.items);
-                this.props.setTotalUsersCount(response.data.totalCount);
-            });
+        const { currentPage, toggleIsFetching, pageSize, setUsers, setTotalUsersCount } = this.props;
+
+        toggleIsFetching(true);
+
+        axios.get(USERS_URL, {
+            params: {
+                page: currentPage,
+                count: pageSize,
+            }
+        }).then(({ data: { items, totalCount } }) => {
+            setUsers(items);
+            setTotalUsersCount(totalCount);
+        }).finally(() => {
+            toggleIsFetching(false);
+        })
     }
 
     onPageChanged = (pageNumber) => {
@@ -81,5 +92,7 @@ let mapStateToProps = (state) => {
 //     }
 // }
 
-export default connect (mapStateToProps,
+export const ConnectedUsersContainer = connect (mapStateToProps,
     {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching}) (UserContainer);
+
+export default ConnectedUsersContainer
