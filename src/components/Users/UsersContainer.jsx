@@ -25,11 +25,13 @@ class UserContainer extends React.Component {
                 page: currentPage,
                 count: pageSize
             }
-        }).then(({data: {items, totalCount}}) => {
-            toggleIsFetching(false);
+        }).then(({data: {items, totalCount} }) => {
+            setTotalUsersCount(totalCount);
             setUsers(items)
         }).finally(() => {
-            setTotalUsersCount(totalCount);
+            console.log('totalCount',totalCount)
+            toggleIsFetching(false);
+
         })
     }
 
