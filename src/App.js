@@ -15,11 +15,11 @@ const App = (props) => {
             <Header/>
             <Navbar/>
             <div className='app-wrapper-content'>
-                <Route path='/profile'
+                <Route path='/profile/:userId?'
                        render={() => <ProfileContainer/>}/>
                 <Route path='/dialogs'
                        render={() => <DialogsContainer/>}/>
-                <Route parth='/users' render={ () => <UsersContainer/>}/>
+                <Route path='/users' render={ () => <UsersContainer/>}/>
                 <Route path='/friends'
                        render={() => <Friends state={props.state.sidebar}/>}/>
                 <Route path='/' exact={true} render={() => <Redirect to='/profile'/>}/>
