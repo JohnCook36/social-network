@@ -17,7 +17,7 @@ export const USERS_URL = `${API_URL}/users`;
 class UserContainer extends React.Component {
     componentDidMount() {
 
-        const {toggleIsFetching, currentPage, pageSize, setUsers, totalCount} = this.props
+        const {toggleIsFetching, currentPage, pageSize, setUsers, totalCount, setTotalUsersCount} = this.props
 
         toggleIsFetching(true);
         axios.get(USERS_URL, {

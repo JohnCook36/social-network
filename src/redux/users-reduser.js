@@ -9,7 +9,7 @@ let initialState = {
     users: [ ],
     pageSize: 5,
     totalUsersCount: 200,
-    currentPage: 1,
+    currentPage: 2,
     isFetching: true
 };
 

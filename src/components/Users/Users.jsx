@@ -5,8 +5,6 @@ import {NavLink} from "react-router-dom";
 
 let Users = (props) => {
 
-    debugger
-
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
     let pages = []
@@ -15,7 +13,7 @@ let Users = (props) => {
     }
 
     if (pages.length > 20){
-        pages = [...pages.slice(0, 10), '...', ...pages.slice(pages.length - 19, pages.length)]
+        pages = [...pages.slice(0, 10), '...', ...pages.slice(pages.length - 10, pages.length)]
     }
 
     return <div>
