@@ -24,7 +24,8 @@ class UserContainer extends React.Component {
             params: {
                 page: currentPage,
                 count: pageSize
-            }
+            },
+            withCredentials:true,
         }).then(({data: {items, totalCount} }) => {
             setTotalUsersCount(totalCount);
             setUsers(items)
@@ -45,7 +46,8 @@ class UserContainer extends React.Component {
             params: {
                 page: pageNumber,
                 count: pageSize
-            }
+            },
+            withCredentials:true,
         }).then(({data: {items} }) => {
 
                 setUsers(items);
