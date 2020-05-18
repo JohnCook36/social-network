@@ -21,11 +21,12 @@ class UserContainer extends React.Component {
 
         toggleIsFetching(true);
         axios.get(USERS_URL, {
+            withCredentials: true,
             params: {
                 page: currentPage,
                 count: pageSize
-            },
-            withCredentials:true,
+                },
+
         }).then(({data: {items, totalCount} }) => {
             setTotalUsersCount(totalCount);
             setUsers(items)
@@ -43,11 +44,11 @@ class UserContainer extends React.Component {
         setCurrentPage(pageNumber);
         toggleIsFetching(true);
         axios.get(USERS_URL, {
+            withCredentials: true,
             params: {
                 page: pageNumber,
                 count: pageSize
             },
-            withCredentials:true,
         }).then(({data: {items} }) => {
 
                 setUsers(items);
