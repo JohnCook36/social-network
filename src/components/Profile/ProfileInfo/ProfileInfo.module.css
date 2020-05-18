@@ -9,3 +9,24 @@
     width: 150px;
     border-radius: 50%;
 }
+.descriptionBlock{
+    padding: 10px;
+
+}
+
+.pageHeader {
+    background-color: beige;
+}
+
+.avatar{
+    border-radius: 50%;
+    float: left;
+    margin-right: 15px ;
+}
+.pageHeaderElement {
+    padding: 10px;
+}
+
+.pageHeaderElementInfo {
+    font-weight: bold;
+}

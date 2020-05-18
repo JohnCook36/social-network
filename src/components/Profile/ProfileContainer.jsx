@@ -20,13 +20,13 @@ class ProfileContainer extends React.Component {
         }
 
         axios.get(PROFILE_URL + userId )
-            .then(response => {
-                setUserProfile(response.data);
+            .then(({data : data}) => {
+                setUserProfile(data);
             });
     }
 
     render() {
-        const {profile } = this.props
+        const {profile} = this.props
             return (
                 <Profile {...this.props} profile={profile} />
 
