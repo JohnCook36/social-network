@@ -3,11 +3,7 @@ import Header from "./Header";
 import * as axios from "axios";
 import {connect} from "react-redux";
 import {setAuthUserData} from "../../redux/auth-reduser";
-import {API_URL} from "../Users/UsersContainer";
-
-export const AUTH_URL = `${API_URL}/auth`;
-export const AUTH_ME_URL = `${AUTH_URL}/me`;
-
+import {AUTH_ME_URL} from "../../constants";
 
 class HeaderContainer extends React.Component {
 

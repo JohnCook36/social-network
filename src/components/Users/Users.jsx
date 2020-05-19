@@ -3,9 +3,7 @@ import s from "./Users.module.css";
 import userPhoto from "../../assets/images/user.png";
 import {NavLink} from "react-router-dom";
 import axios from "axios";
-
-export const API_URL = 'https://social-network.samuraijs.com/api/1.0';
-export const FOLLOW_URL = `${API_URL}/follow`;
+import {API_KEY, FOLLOW_URL} from "../../constants";
 
 let Users = (props) => {
 
@@ -24,7 +22,7 @@ let Users = (props) => {
         axios.delete(`${FOLLOW_URL}/${u.id}` , {
             withCredentials: true,
             headers:{
-                "API-KEY": "dedb3abf-fc34-480a-ad33-f0c9016b8c02",
+                "API-KEY": API_KEY,
             }
         })
             .then(response => {
@@ -38,7 +36,7 @@ let Users = (props) => {
         }, {
             withCredentials: true,
             headers:{
-                "API-KEY": "dedb3abf-fc34-480a-ad33-f0c9016b8c02"
+                "API-KEY": API_KEY,
             }
         })
             .then(response => {

@@ -10,9 +10,9 @@ import {
 import * as axios from "axios";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
+import {USERS_URL} from "../../constants";
 
-export const API_URL = 'https://social-network.samuraijs.com/api/1.0';
-export const USERS_URL = `${API_URL}/users`;
+
 
 class UserContainer extends React.Component {
     componentDidMount() {

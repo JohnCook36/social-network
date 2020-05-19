@@ -3,11 +3,8 @@ import Profile from "./Profile";
 import * as axios from "axios";
 import {connect} from "react-redux";
 import {setUserProfile} from "../../redux/profile-reducer";
-import {API_URL} from "../Users/UsersContainer";
 import {withRouter} from "react-router-dom";
-
-export const PROFILE_URL = `${API_URL}/profile/`;
-
+import {PROFILE_URL} from "../../constants";
 
 class ProfileContainer extends React.Component {
 
