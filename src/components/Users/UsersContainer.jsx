@@ -7,10 +7,11 @@ import {
     toggleIsFetching,
     unfollow
 } from "../../redux/users-reduser";
-import * as axios from "axios";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
-import {USERS_URL} from "../../constants";
+import {getUsers} from "../../api/api";
+
+
 
 
 
@@ -20,14 +21,9 @@ class UserContainer extends React.Component {
         const {toggleIsFetching, currentPage, pageSize, setUsers, totalCount, setTotalUsersCount} = this.props
 
         toggleIsFetching(true);
-        axios.get(USERS_URL, {
-            withCredentials: true,
-            params: {
-                page: currentPage,
-                count: pageSize
-                },
 
-        }).then(({data: {items, totalCount} }) => {
+        getUsers(currentPage, pageSize)
+            .then(({data: {items, totalCount} }) => {
             setTotalUsersCount(totalCount);
             setUsers(items)
         }).finally(() => {
@@ -43,13 +39,8 @@ class UserContainer extends React.Component {
 
         setCurrentPage(pageNumber);
         toggleIsFetching(true);
-        axios.get(USERS_URL, {
-            withCredentials: true,
-            params: {
-                page: pageNumber,
-                count: pageSize
-            },
-        }).then(({data: {items} }) => {
+        getUsers(pageNumber, pageSize)
+        .then(({data: {items} }) => {
 
                 setUsers(items);
             }). finally (() => {

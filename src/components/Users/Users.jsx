@@ -7,13 +7,14 @@ import {API_KEY, FOLLOW_URL} from "../../constants";
 
 let Users = (props) => {
 
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+    const {totalUsersCount,pageSize } = props;
+
+    let pagesCount = Math.ceil(totalUsersCount / pageSize);
 
     let pages = []
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
     }
-
     if (pages.length > 20) {
         pages = [...pages.slice(0, 10), '...', ...pages.slice(pages.length - 10, pages.length)]
     }
@@ -80,10 +81,7 @@ let Users = (props) => {
                         <div>{u.name}</div>
                         <div>{u.status}</div>
                     </span>
-                    <span>
-                        <div>{"u.location.country"}</div>
-                        <div>{"u.location.city"}</div>
-                    </span>
+
                 </span>
         </div>)
         }
