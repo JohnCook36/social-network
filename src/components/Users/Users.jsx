@@ -7,7 +7,7 @@ import {API_KEY, FOLLOW_URL} from "../../constants";
 
 let Users = (props) => {
 
-    const {totalUsersCount,pageSize } = props;
+    const {totalUsersCount,pageSize} = props;
 
     let pagesCount = Math.ceil(totalUsersCount / pageSize);
 
@@ -20,6 +20,7 @@ let Users = (props) => {
     }
 
     const handleUnfollow = (u) => {
+        props.toggleFollowingProgress(true, u.id)
         axios.delete(`${FOLLOW_URL}/${u.id}` , {
             withCredentials: true,
             headers:{
@@ -29,10 +30,12 @@ let Users = (props) => {
             .then(response => {
                 if (response.data.resultCode == 0)
                     props.unfollow(u.id);
+                props.toggleFollowingProgress(false, u.id)
             })
     }
 
     const handleFollow = (u) => {
+        props.toggleFollowingProgress(true, u.id)
         axios.post(`${FOLLOW_URL}/${u.id}`,{
         }, {
             withCredentials: true,
@@ -43,15 +46,16 @@ let Users = (props) => {
             .then(response => {
                 if (response.data.resultCode == 0)
                     props.follow(u.id);
+                props.toggleFollowingProgress(false, u.id)
             })
     }
-
+const { users ,currentPage, onPageChanged, followingInProgress } = props
 
     return <div>
         <div>
             {pages.map(p =>
-                <span className={props.currentPage === p ? s.activePagePointer : s.pagePointer}
-                      onClick={(e) => p !== '...' && props.onPageChanged(p)}
+                <span className={currentPage === p ? s.activePagePointer : s.pagePointer}
+                      onClick={(e) => p !== '...' && onPageChanged(p)}
                       key={p}
                 >
                     {p}
@@ -59,7 +63,7 @@ let Users = (props) => {
             )}
         </div>
 
-        {props.users.map(u => <div key={u.id}>
+        {users.map(u => <div key={u.id}>
             <span>
                 <div>
                     <NavLink to={'/profile/' + u.id}>
@@ -71,8 +75,8 @@ let Users = (props) => {
                 </div>
                 <div>
                     {u.followed
-                        ? <button onClick={() => handleUnfollow(u)}>Unfollow</button>
-                        : <button onClick={() => handleFollow(u)}>Follow</button>
+                        ? <button disabled={followingInProgress.some (id => id === u.id)} onClick={() => handleUnfollow(u)}>Unfollow</button>
+                        : <button disabled={followingInProgress.some (id => id === u.id)} onClick={() => handleFollow(u)}>Follow</button>
                     }
                 </div>
             </span>
